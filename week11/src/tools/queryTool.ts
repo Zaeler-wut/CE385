@@ -11,9 +11,6 @@ const prisma = new PrismaClient({ adapter });
 // อนุญาตเฉพาะ action ที่ใช้ดึงข้อมูล
 const ALLOWED_ACTIONS = ["findMany", "findFirst", "findUnique", "count"] as const;
 
-// ไม่อนุญาต
-// deleteMany, updateMany, create, upsert, executeRaw, ...
-
 const QueryInputSchema = z.object({
   model: z.enum(["User", "Order"]),
   action: z.enum(ALLOWED_ACTIONS),
